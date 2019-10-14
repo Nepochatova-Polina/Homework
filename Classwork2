@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+int main() {
+//    //Task1
+    int x, y, i, j;
+    cout << "Enter width i: ";
+    cin >> i;
+    cout << "Enter high j: ";
+    cin >> j;
+    for (y = 1; y <= i; y++) {
+        for (x = 1; x <= j; x++) {
+            if (y == 1 || y == i || x == 1 || x == j)
+                cout << "*";
+            else
+                cout << " ";
+            if (i > j || j < i) cout << "Wrong condition ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+//    //Task2
+        int a;
+        cout << "\nEnter cathetus of triangle: ";
+        cin >> a;
+
+        for (int i = 1; i <= a; i++)
+        {
+            for (int f = 1; f <= a; f++)
+            {
+                if (f == 1 || i == a || f == i)
+                    cout << "*";
+                else
+                    cout << " ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+
+
+    //Task3
+    int c;
+    cout << "\nEnter length of triangle's side: ";
+    cin >> c;
+    int h = (int)(c * 0.71);
+    cout << endl;
+    for (int y = 1; y <= h; y++)
+    {
+        for (int x = 1; x < h * 2; x++)
+        {
+            if ( y == h || y == h - x + 1 || x == y + h - 1)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+    
+//Task4
+    int n, k, width;
+    cout << "\n width: ";
+    cin >> width;
+    if (width % 2 == 1){
+        width--;
+    }
+
+    for (k = 0; k <= width; k++){
+        for (n = 0; n <= width; n++){
+            if ((k == -n + width / 2) || (k == -n  + (3 * width / 2)) || (k == n + width / 2) || (k == n - width / 2)){
+                cout << "*";
+            }
+            else{
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+

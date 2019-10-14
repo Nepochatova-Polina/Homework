@@ -1,0 +1,88 @@
+#include <iostream>
+#include "cmath"
+
+using namespace std;
+
+//Variant7  First
+void Array1() {
+    int n, i, max = 0;
+    cout << "Enter amount of elements:" << endl;
+    cin >> n;
+    int array1[n];
+    for (i = 0; i < n; i++) {
+        cout << "Enter element of array:" << endl;
+        cin >> array1[i];
+        if (array1[i] > max) {
+            max = array1[i];
+        }
+    }
+    printf("%d\n", max);
+
+
+}
+
+//Second
+void Array2() {
+    int n, i;
+    double p;
+    bool f = false;
+    cout << "Enter amount of elements:" << endl;
+    cin >> n;
+    int array2[n];
+    for (i = 1; i < n; i++) {
+        cout << "Enter element of array:" << endl;
+        cin >> array2[i];
+    }
+    for (i = 0; i < n; i++) {
+        if (array2[i] == 0) {
+            if (!f) {
+                f = true;
+                p = 1;
+                continue;
+            } else {
+                break;
+            }
+        }
+        if (f) {
+            p *= array2[i];
+        }
+    }
+    printf("composition: %lf\n", p);
+}
+
+void Array3() {
+    int i, n, l, r, b;
+    cout << "Enter amount of elements:" << endl;
+    cin >> n;
+    int array3[n];
+    for (i = 0; i < n; i++) {
+        cout << "Enter element of array:" << endl;
+        cin >> array3[i];
+    }
+    l = 0;
+    if (n % 2 == 0) {
+        r = n;
+    } else {
+        r = n - 1;
+    }
+    for (i = 0; i < n / 2; i++) {
+        b = array3[l];
+        array3[l] = array3[r];
+        array3[r] = b;
+        l++;
+        r--;
+    }
+    for (i = 0; i < n; i++) {
+        printf("m[%d]", array3[i]);
+    }
+}
+
+
+int main() {
+    Array1();
+    Array2();
+    Array3();
+
+    return 0;
+
+}

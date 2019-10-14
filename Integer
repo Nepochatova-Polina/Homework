@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+
+
+int main() {
+
+    // Integer 2
+    printf("Integer 2\n");
+    long weight = 3576937593; // kilogram
+    int t = 1000;
+    int x = weight / t;
+    printf("Weight: %d\n\n", x);
+
+
+    // Integer 10
+    printf("Integer 10\n");
+    int a;
+    printf("a:");
+    scanf("%i", &a);
+    int last = a % 10;
+    int beforeLast = (a - last) / 10 % 10;
+    printf("%i\n%i\n\n", last, beforeLast);
+
+    //Integer 20
+    printf("Integer 20\n");
+    printf("Minutes:");
+    int n;
+    int k = 60;
+    cin >> n;
+    cout << n << endl;
+    printf(" Hours: %d\n\n", n/k);
+
+
+    // Integer 26
+    printf(" Integer 26\n");
+    const int K = 4;
+    int days = K % 7;
+    int day = 1 + days;
+    printf(" Day number: %d\n", day);
+
+
+
+
+    return 0;
+}
+                        

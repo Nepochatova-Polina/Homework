@@ -36,8 +36,8 @@ void Second(int n, int m) {
         length3 = sqrt(pow((x3 - x2), 2) + pow((y3 - y2), 2));
 
 
-        if (((length1 == length2) && (length2 != length3)) || ((length1 == length3) && (length1 != length2)) ||
-            ((length2 == length3) && (length2 != length1))) {
+        if (((length1 == length2) && (length2 == length3)) || ((length1 == length3) && (length1 == length2)) ||
+            ((length2 == length3) && (length2 == length1))) {
             cout << x1 << " " << y1 << endl << x2 << " " << y2 << endl << x3 << " " << y3 << endl;
         } else {
             cout << "not suitable" << endl;

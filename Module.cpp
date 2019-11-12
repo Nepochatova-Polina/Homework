@@ -81,35 +81,36 @@ void newArray(int size1, int size2) {
 
 void Polinom(int number) {
     int arrUserNumbers[number];
-    int numberOfElement = number / 2;
+    int numberOfDigits = number / 2;
+    srand((unsigned) time(0));
 
-    for (int m = 0; m < 100; m++) {
+    for (int m = 0; m < 1000; m++) {
         for (int i = 0; i < number; i++) {
             arrUserNumbers[i] = rand() % 4;
         }
         bool foundDuplicate = false;
-        for (int digits = 0; digits < numberOfElement; digits++) {
-            foundDuplicate = findEquals(digits, arrUserNumbers);
+        for (int digits = 1; digits <= numberOfDigits; digits++) {
+            foundDuplicate = findEquals(digits, arrUserNumbers, number);
             if (foundDuplicate) {
                 break;
             }
         }
         if (!foundDuplicate) {
             for (int i = 0; i < number; i++) {
-                cout << arrUserNumbers;
+                cout << arrUserNumbers[i];
             }
             break;
         }
     }
 }
 
-bool findEquals(int digits, int *arrUserNumbers) {
+bool findEquals(int digits, int *arrUserNumbers, int size) {
     bool flag = false;
-    int num = 0;
-    int firstNumber = getNumber(arrUserNumbers, digits, num);
+    int num = 1;
+    int firstNumber = getNumber(arrUserNumbers, digits, num, size);
     do {
         num++;
-        int secondNumber = getNumber(arrUserNumbers, digits, num);
+        int secondNumber = getNumber(arrUserNumbers, digits, num, size);
         if (secondNumber == -1) {
             break;
         }
@@ -128,20 +129,20 @@ bool comparison(int firstNumber, int secondNumber) {
     return firstNumber == secondNumber;
 }
 
-int getNumber(const int *arrUserNumbers, int digits, int num) {
-    int size = sizeof(arrUserNumbers);
+int getNumber(const int *arrUserNumbers, int digits, int num, int size) {
     if (num * digits > size) {
         return -1;
     }
     int sum = 0;
+    int start = (num - 1) * digits;
     do {
-        for (int i = num * digits; i < num * digits * 2 - 1; i++) {
-            sum += arrUserNumbers[i] * pow(10, digits);
-            digits--;
-        }
+        sum += arrUserNumbers[start] * pow(10, digits - 1);
+        digits--;
+        start++;
     } while (digits > 0);
     return sum;
 }
+
 
 void sortOfMatrix(int rows, int columns) {
     int array[rows];

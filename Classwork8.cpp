@@ -47,6 +47,6 @@ int main() {
             f = true;
         }
     if (!f) cout << "There are no such trains" << endl;
-    delete [] Train;
+    delete [] *findTrain;
     return 0;
 }
